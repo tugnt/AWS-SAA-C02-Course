@@ -148,30 +148,31 @@ Some services are global such as IAM
 Region Name: Asia Pacific (Sydney)
 Region Code: ap-southeast-2
 
-AWS will provide between 2 and 6 AZs per region.
-AZs are isolated compute, storage, networking, power, and facilities.
-Components are allowed to distribute load and resilience by using multiple zones.
+AWS sẽ cuung cấp giữa 2 đến 6 AZ trên mỗi region.
+Mỗi AZ sẽ bao gồm các máy tính tính toán, hệ thống lưu trữ, hệ thống mạng, nguồn vv.
+Các component thì cho phép phân phối trên nhiều zones 
+Các AZs sẽ kết nối với nhau bằng 1 mạng dự phòng tốc độ cao.
 
-AZs are connected to each other with high speed redundant networks.
+#### 1.2.3.1. Service Resilience (Khả năng phục hồi )
 
-#### 1.2.3.1. Service Resilience
-
-1. Globally Resilient: IAM or Route 53. No way for them to go down. Data is
-replicated throughout multiple regions.
-2. Region Resilient: Operate as separate services in each region. Generally
-replicate data to multiple AZs in that region.
-3. AZ Resilient: Run from a single AZ. It is possible for hardware to fail in an
-AZ and the service to keep running because of redundant equipment, but should
-not be relied on.
+1. Globally Resilient:Khả năng phục hồi trên toàn cầu.Dữ liệu được phân bố ở nhiều nơi khác nhau bởi vây sẽ giảm thiểu được ảnh hưởng nếu một trong các vùng gặp sư cố
+2. Region Resilient: Khả năng phục hồi trên region -> Nếu xảy ra sự cố thì chỉ cần sao chép dữ liệu đến region đó
+3. AZ Resilient: Khả năng phục hồi trên AZ: Vân có thể trường hợp bị lỗi phần cứng trong AZ và vẫn hoạt động do sự dư thừa phần cứng. Tuy nhiên không nên phụ thuộc vào đó
 
 ### 1.2.4. AWS Default VPC
 
 VPC is a virtual network inside of AWS.
+- VPC là một mạng ảo nằm trong AWS
 A VPC is within 1 account and 1 region which makes it regionally resilient.
+- Một VPC bên trong 1 acc và 1 region cái mà sẽ giúp nó có khả năng phục hồi theo khu vực. 
 A VPC is private and isolated until decided otherwise.
+- VPC là private và biệt lập cho đến khi có quyết định khác.
+
 
 One default VPC per region. Can have many custom VPCs which are all private
 by default.
+Một VPC default trên mỗi region. Có thể tuỳ biến nhiều VPCs cho tất cả đều là private theo default.
+
 
 #### 1.2.4.1. Default VPC Facts
 
